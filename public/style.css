@@ -1,0 +1,122 @@
+:root {
+  --bg: #000000;
+  --card: #0b0f17;
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --primary: #4f46e5;
+  --primary-2: #6366f1;
+  --border: #1f2937;
+  --glow: rgba(99,102,241,0.8);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  z-index: 2;
+}
+.brand { font-weight: 700; letter-spacing: 0.4px; opacity: 0.95; }
+.icon-group { display: flex; gap: 12px; }
+.icon-btn { color: white; text-decoration: none; filter: drop-shadow(0 0 10px var(--glow)); }
+.icon-btn:hover { filter: drop-shadow(0 0 14px var(--glow)); }
+
+.container { width: 100%; max-width: 720px; padding: 96px 24px 24px; margin: 0 auto; position: relative; z-index: 1; }
+h1 { margin: 8px 0 20px; font-size: 28px; }
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.hidden { display: none; }
+
+textarea {
+  width: 100%;
+  min-height: 160px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.row { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+select {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  height: 40px;
+  padding: 0 10px;
+}
+
+button {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(79,70,229,0.25);
+}
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+button:active { transform: translateY(1px); }
+
+input[readonly] {
+  width: 100%;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.note-display {
+  white-space: pre-wrap;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 80px;
+}
+
+.subtle { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+/* Read mode tweaks */
+html[data-mode="read"] #create-view,
+html[data-mode="read"] #link-view { display: none; }
+html[data-mode="read"] #read-view { display: block; }
+
+/* Starfield background */
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  display: block;
+}
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPrivNote</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="description" content="One-time encrypted notes. Create, share, auto-destroy on read.">
+</head>
+<body>
+    <canvas id="stars"></canvas>
+    <header class="site-header">
+        <div class="brand">MyPrivNote</div>
+        <div class="icon-group">
+            <a class="icon-btn home-icon" href="/" aria-label="Home">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                    <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a class="icon-btn mail-icon" href="mailto:" aria-label="Contact via email">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                    <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Drop Your Secret</h1>
+
+        <div id="create-view" class="card">
+            <textarea id="note-input" placeholder="Type your secret here..."></textarea>
+            <div class="row">
+                <button id="create-btn">Encrypt & Generate Link</button>
+            </div>
+            <p class="subtle">Your note is encrypted in your browser. The server never sees the plaintext.</p>
+        </div>
+
+        <div id="link-view" class="card hidden">
+            <input id="share-link" readonly>
+            <button id="copy-btn">Copy Link</button>
+            <button id="new-btn" class="secondary">Create New</button>
+            <p class="subtle">Anyone with this link can read the note once. After reading, it is destroyed.</p>
+        </div>
+
+        <div id="read-view" class="card hidden">
+            <div id="note-display" class="note-display"></div>
+            <button id="destroyed-new-btn" class="secondary">Create Your Own</button>
+        </div>
+
+        <div id="not-found" class="card hidden">
+            <p>Note not found or already read.</p>
+            <button id="back-btn" class="secondary">Go Back</button>
+        </div>
+    </div>
+
+    <script src="/main.js" type="module"></script>
+    <script>
+        // Simple router for read links
+        (function() {
+            const path = location.pathname;
+            if (path.startsWith('/n/')) {
+                document.documentElement.dataset.mode = 'read';
+            }
+        })();
+    </script>
+</body>
+<style>
+/* Basic inline font fallback if CSS fails */
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+</style>
+</html>
+
+
