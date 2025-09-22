@@ -28,7 +28,15 @@ body {
   background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
   z-index: 2;
 }
-.brand { font-weight: 700; letter-spacing: 0.4px; opacity: 0.95; }
+.brand { font-weight: 700; letter-spacing: 0.4px; opacity: 0.95; display: inline-flex; align-items: center; gap: 8px; }
+.brand-icon {
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.45));
+  animation: brandGlow 2.8s ease-in-out infinite;
+}
+@keyframes brandGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.35)); opacity: 0.9; }
+  50% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.75)); opacity: 1; }
+}
 .icon-group { display: flex; gap: 12px; }
 .icon-btn { color: white; text-decoration: none; filter: drop-shadow(0 0 10px var(--glow)); }
 .icon-btn:hover { filter: drop-shadow(0 0 14px var(--glow)); }
