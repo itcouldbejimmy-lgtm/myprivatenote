@@ -65,6 +65,7 @@ textarea {
 }
 
 .row { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+.link-actions { gap: 12px; margin-top: 0; }
 select {
   background: var(--card);
   color: var(--text);
@@ -75,7 +76,7 @@ select {
 }
 
 button {
-  height: 40px;
+  height: 44px;
   padding: 0 14px;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -97,8 +98,9 @@ input[readonly] {
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 10px;
-  height: 40px;
-  padding: 0 10px;
+  height: 44px;
+  padding: 0 12px;
+  margin-bottom: 10px;
 }
 
 .note-display {
